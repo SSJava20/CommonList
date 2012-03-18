@@ -64,4 +64,20 @@ public class ArrayListInt extends ListInt
         items[index] = item;
     }
 
+    public void sort()
+    {
+        for(int i = 0; i < size; i++)
+        {
+            for(int j = i; j < size; j++)
+            {
+                if(items[j] < items[i])
+                {
+                    int tmp = items[i];
+                    items[i] = items[j];
+                    items[j] = tmp;
+                }
+            }
+        }
+    }
+
 }
