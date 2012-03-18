@@ -1,20 +1,24 @@
 package list;
 
-public class Iterator {
-	private ListInt list;
-	private int i = 0;
+public class Iterator
+{
+    private ListInt list;
+    private int i = 0;
 
-	public Iterator(ListInt list) {
-		this.list = list;
-	}
+    public Iterator(ListInt list)
+    {
+        this.list = list;
+    }
 
-	public boolean hasNext() {
-		if (i < list.size())
-			return true;
-		return false;
-	}
+    public boolean hasNext()
+    {
+        if (i < list.size())
+            return true;
+        return false;
+    }
 
-	public int next() {
-		return list.get(i++);
-	}
+    public int next()
+    {
+        return list.get(i++);
+    }
 }
