@@ -75,6 +75,7 @@ public class ArrayListInt extends ListInt
                     int tmp = items[i];
                     items[i] = items[j];
                     items[j] = tmp;
+                    //
                 }
             }
         }
