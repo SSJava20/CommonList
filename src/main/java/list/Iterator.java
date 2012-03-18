@@ -20,5 +20,6 @@ public class Iterator
     public int next()
     {
         return list.get(i++);
+        //
     }
 }
