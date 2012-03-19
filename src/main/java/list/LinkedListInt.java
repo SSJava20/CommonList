@@ -9,45 +9,82 @@ package list;
  */
 public class LinkedListInt extends ListInt
 {
+    protected class listNode
+    {
+        listNode next;
+        int data;
+
+        public listNode(listNode nxt, int ndata)
+        {
+            next = nxt;
+            data = ndata;
+        }
+    }
+
+    protected listNode begin;
+    //listNode
+
+    public LinkedListInt()
+    {
+        size = 0;
+        begin = null;
+    }
+
+    protected listNode getNode(int index)
+    {
+        listNode temp = begin;
+        int cnt = 0;
+        while (cnt++ != index && temp != null)
+            temp = temp.next;
+
+        return temp;
+    }
+    
     @Override
     public void add(int index, int item)
     {
-        //To change body of implemented methods use File | Settings | File Templates.
+        listNode temp = getNode(index);
+        if(temp != null)
+        {
+            temp.next = new listNode(temp.next, item);
+            size++;
+        }
     }
 
     @Override
     public void addFirst(int item)
     {
-        //To change body of implemented methods use File | Settings | File Templates.
+        add(0, item);
     }
 
     @Override
     public void addLast(int item)
     {
-        //To change body of implemented methods use File | Settings | File Templates.
+        add(size, item);
     }
 
     @Override
     public void clear()
     {
-        //To change body of implemented methods use File | Settings | File Templates.
+        begin = null;
+        size = 0;
     }
 
     @Override
     public void del(int index)
     {
-        //To change body of implemented methods use File | Settings | File Templates.
+
     }
 
     @Override
     public int get(int index)
     {
-        return 0;  //To change body of implemented methods use File | Settings | File Templates.
+        return getNode(index).data;
     }
 
     @Override
     public void set(int index, int item)
     {
-        //To change body of implemented methods use File | Settings | File Templates.
+        getNode(index).data = item;
     }
 }
