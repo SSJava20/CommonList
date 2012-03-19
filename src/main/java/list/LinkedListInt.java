@@ -43,12 +43,19 @@ public class LinkedListInt extends ListInt
     @Override
     public void add(int index, int item)
     {
-        listNode temp = getNode(index);
+        if(index == 0)
+        {
+            begin = new listNode(begin, item);
+            size++;
+            return;
+        }
+        listNode temp = getNode(index-1);
         if(temp != null)
         {
             temp.next = new listNode(temp.next, item);
             size++;
         }
+
     }
 
     @Override
@@ -73,7 +80,20 @@ public class LinkedListInt extends ListInt
     @Override
     public void del(int index)
     {
-
+        if(index == 0)
+        {
+            begin = begin.next;
+            if(size > 0)
+                size--;
+            return;
+        }
+        listNode tmp = getNode(index - 1);
+        if(tmp.next != null)
+        {
+            tmp.next = tmp.next.next;
+            if(size > 0)
+                size--;
+        }
     }
 
     @Override
