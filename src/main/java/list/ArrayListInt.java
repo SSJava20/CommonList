@@ -4,6 +4,7 @@ public class ArrayListInt extends ListInt {
 
 	public static final int START_SIZE = 20;
 	private int[] items = new int[START_SIZE];
+	private int indexFirst;
 
 	@Override
 	public void add(int index, int item) {
