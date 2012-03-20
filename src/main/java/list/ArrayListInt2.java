@@ -7,7 +7,7 @@ public class ArrayListInt2 extends ListInt {
 	private int start;
 	private int end;
 
-	public TwoIndexList() {
+	public ArrayListInt2() {
 		start = START_SIZE / 2;
 		end = START_SIZE / 2;
 	}

@@ -152,6 +152,14 @@ public class ListIntTest {
 
 	}
 
+	@Test
+	public void testIndexOf() {
+		fillList();
+		for (int i = 0; i < TO_ADD_SIZE; i++) {
+			assertEquals(i, list.indexOf(i));
+		}
+	}
+
 	@Parameters
 	public static Collection parTestValues() {
 		return Arrays.asList(new Object[][] {
@@ -159,4 +167,6 @@ public class ListIntTest {
 		// { RoundIndexList.class, "" },
 		{ LinkedListInt.class, "" } });
 	}
+	
+	// fucking test repository
 }

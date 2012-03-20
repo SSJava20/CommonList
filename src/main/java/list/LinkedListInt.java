@@ -89,4 +89,13 @@ public class LinkedListInt extends ListInt {
 	public void set(int index, int item) {
 		getNode(index).data = item;
 	}
+
+	/* (non-Javadoc)
+	 * @see list.ListInt#indexOf(int)
+	 */
+	@Override
+	public int indexOf(int item) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
