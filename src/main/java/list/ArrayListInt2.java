@@ -125,4 +125,22 @@ public class ArrayListInt2 extends ListInt {
 		}
 		return -1;
 	}
+	
+	class Iterator implements java.util.Iterator<Integer> {
+		int curIndex = start;
+
+		public boolean hasNext() {
+			return curIndex + 1 < end;
+		}
+
+		public Integer next() {
+			return array[curIndex++];
+		}
+
+		public void remove() {
+			// TODO Auto-generated method stub
+		}
+
+	}
+
 }

@@ -10,6 +10,7 @@ import java.util.Random;
 import java.util.Vector;
 
 import list.ArrayListInt;
+import list.ArrayListInt2;
 import list.ListInt;
 import list.LinkedListInt;
 
@@ -149,7 +150,6 @@ public class ListIntTest {
 			assertEquals(i, value.intValue());
 			i++;
 		}
-
 	}
 
 	@Test
@@ -163,8 +163,8 @@ public class ListIntTest {
 	@Parameters
 	public static Collection parTestValues() {
 		return Arrays.asList(new Object[][] {
-		// { ArrayListInt.class, "" },
-		// { RoundIndexList.class, "" },
+		 { ArrayListInt.class, "" },
+		 { ArrayListInt2.class, "" },
 		{ LinkedListInt.class, "" } });
 	}
 	

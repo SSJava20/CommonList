@@ -21,22 +21,19 @@ public class LinkedListInt extends ListInt
     class Iterator implements java.util.Iterator<Integer>
     {
         listNode curNode;
-
-        @Override
+        
         public boolean hasNext()
         {
             return (curNode.next != null);  //To change body of implemented methods use File | Settings | File Templates.
         }
 
-        @Override
         public Integer next()
         {
             Integer toret = curNode.data;
             curNode = curNode.next;
             return toret;  //To change body of implemented methods use File | Settings | File Templates.
         }
-
-        @Override
+        
         public void remove()
         {
             //To change body of implemented methods use File | Settings | File Templates.
