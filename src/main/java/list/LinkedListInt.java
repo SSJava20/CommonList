@@ -20,7 +20,7 @@ public class LinkedListInt extends ListInt
 
     class InnerIterator implements java.util.Iterator<Integer>
     {
-        listNode curNode;
+        listNode curNode = begin; 
         
         public boolean hasNext()
         {
