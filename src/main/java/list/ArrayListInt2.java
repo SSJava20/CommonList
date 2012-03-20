@@ -121,19 +121,31 @@ public class ArrayListInt2 extends ListInt {
 	public int indexOf(int item) {
 		for (int i = start; i < end; i++) {
 			if (array[i] == item)
-				return i-start;
+				return i - start;
 		}
 		return -1;
 	}
-	
-	class Iterator implements java.util.Iterator<Integer> {
+
+	@Override
+	public InnerIterator getInnerIterator() {
+		return new InnerIterator();
+	}
+
+	class InnerIterator implements java.util.Iterator<Integer> {
 		int curIndex = start;
 
 		public boolean hasNext() {
-			return curIndex + 1 < end;
+			if (curIndex < start) {
+				curIndex = start;
+			}
+			return curIndex < end;
 		}
 
 		public Integer next() {
+			if (curIndex < start) {
+				curIndex = start;
+			}
+
 			return array[curIndex++];
 		}
 

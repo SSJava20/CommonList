@@ -6,6 +6,7 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.Random;
 import java.util.Vector;
 
@@ -153,6 +154,17 @@ public class ListIntTest {
 	}
 
 	@Test
+	public void testInnerIterator() {
+		fillList();
+		Iterator iterator = list.getInnerIterator();
+
+		for (int i = 0; iterator.hasNext(); i++) {
+			assertEquals(i, iterator.next());
+		}
+
+	}
+
+	@Test
 	public void testIndexOf() {
 		fillList();
 		for (int i = 0; i < TO_ADD_SIZE; i++) {
@@ -162,11 +174,9 @@ public class ListIntTest {
 
 	@Parameters
 	public static Collection parTestValues() {
-		return Arrays.asList(new Object[][] {
-		 { ArrayListInt.class, "" },
-		 { ArrayListInt2.class, "" },
-		{ LinkedListInt.class, "" } });
+		return Arrays.asList(new Object[][] { { ArrayListInt.class, "" },
+				{ ArrayListInt2.class, "" }, { LinkedListInt.class, "" } });
 	}
-	
+
 	// fucking test repository
 }

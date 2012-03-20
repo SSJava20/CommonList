@@ -82,7 +82,7 @@ public class ArrayListInt extends ListInt {
 		return -1;
 	}
 
-	class Iterator implements java.util.Iterator<Integer> {
+	class InnerIterator implements java.util.Iterator<Integer> {
 		int curIndex;
 
 		public boolean hasNext() {
@@ -97,6 +97,14 @@ public class ArrayListInt extends ListInt {
 			// TODO Auto-generated method stub
 		}
 
+	}
+
+	/* (non-Javadoc)
+	 * @see list.ListInt#getInnerIterator()
+	 */
+	@Override
+	public java.util.Iterator<Integer> getInnerIterator() {
+		return new InnerIterator();
 	}
 
 }

@@ -22,6 +22,8 @@ public abstract class ListInt implements Iterable<Integer> {
 	public abstract void set(int index, int item);
 	
 	public abstract int indexOf(int item);
+	
+	public abstract java.util.Iterator<Integer> getInnerIterator();
 
 	public java.util.Iterator<Integer> iterator() {
 		return new m_Iterator(this);

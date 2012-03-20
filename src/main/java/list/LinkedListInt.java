@@ -18,7 +18,7 @@ public class LinkedListInt extends ListInt
         }
     }
 
-    class Iterator implements java.util.Iterator<Integer>
+    class InnerIterator implements java.util.Iterator<Integer>
     {
         listNode curNode;
         
@@ -140,4 +140,12 @@ public class LinkedListInt extends ListInt
         }
         return cnt;  //To change body of implemented methods use File | Settings | File Templates.
     }
+
+	/* (non-Javadoc)
+	 * @see list.ListInt#getInnerIterator()
+	 */
+	@Override
+	public java.util.Iterator<Integer> getInnerIterator() {
+		return new InnerIterator();
+	}
 }
