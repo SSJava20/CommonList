@@ -67,4 +67,17 @@ public class ArrayListInt extends ListInt {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see list.ListInt#indexOf(int)
+	 */
+	@Override
+	public int indexOf(int item) {
+		for ( int i =0 ; i< items.length; i++)
+		{
+			if ( items[i] == item)
+				return i;
+		}
+		return -1;
+	}
+
 }

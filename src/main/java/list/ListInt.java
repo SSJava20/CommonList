@@ -20,10 +20,18 @@ public abstract class ListInt implements Iterable<Integer> {
 	public abstract int get(int index);
 
 	public abstract void set(int index, int item);
+	
+	public abstract int indexOf(int item);
 
 	public java.util.Iterator<Integer> iterator() {
 		return new m_Iterator(this);
 	}
+	
+	/**
+	 * @param item
+	 * @return
+	 */
+	
 
 	public int size() {
 		return size;
@@ -32,4 +40,5 @@ public abstract class ListInt implements Iterable<Integer> {
 	public void sort() {
 
 	}
+
 }
