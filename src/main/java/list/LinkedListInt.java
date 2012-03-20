@@ -130,4 +130,17 @@ public class LinkedListInt extends ListInt
     {
         getNode(index).data = item;
     }
+
+    @Override
+    public int indexOf(int item)
+    {
+        int cnt = 0;
+        listNode tmp = begin;
+        while(begin.data != item && tmp != null)
+        {
+            tmp = tmp.next;
+            cnt++;
+        }
+        return cnt;  //To change body of implemented methods use File | Settings | File Templates.
+    }
 }
