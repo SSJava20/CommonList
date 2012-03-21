@@ -10,10 +10,7 @@ import java.util.Iterator;
 import java.util.Random;
 import java.util.Vector;
 
-import list.ArrayListInt;
-import list.ArrayListInt2;
-import list.ListInt;
-import list.LinkedListInt;
+import list.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,161 +19,194 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 @RunWith(Parameterized.class)
-public class ListIntTest {
+public class ListIntTest
+{
 
-	public static final int TO_ADD_SIZE = 100;
-	ListInt list;
-	Class listClass;
+    public static final int TO_ADD_SIZE = 100;
+    ListInt list;
+    Class listClass;
 
-	public ListIntTest(Class clazz, Object objects) {
-		listClass = clazz;
-	}
+    public ListIntTest(Class clazz, Object objects)
+    {
+        listClass = clazz;
+    }
 
-	@Before
-	public void before() throws InstantiationException, IllegalAccessException {
-		list = (ListInt) listClass.newInstance();
-	}
+    @Before
+    public void before() throws InstantiationException, IllegalAccessException
+    {
+        list = (ListInt) listClass.newInstance();
+    }
 
-	public void fillList() {
-		for (int i = 0; i < TO_ADD_SIZE; i++) {
-			list.addLast(i);
-		}
-	}
+    public void fillList()
+    {
+        for (int i = 0; i < TO_ADD_SIZE; i++)
+        {
+            list.addLast(i);
+        }
+    }
 
-	@Test
-	public void testAdd() {
+    @Test
+    public void testAdd()
+    {
 
-		fillList();
-		for (int i = 0; i < TO_ADD_SIZE; i++) {
-			assertEquals(i, list.get(i));
-		}
-	}
+        fillList();
+        for (int i = 0; i < TO_ADD_SIZE; i++)
+        {
+            assertEquals(i, list.get(i));
+        }
+    }
 
-	@Test
-	public void testAddToPosition() {
-		fillList();
-		for (int i = 0; i < TO_ADD_SIZE; i++) {
-			list.add(TO_ADD_SIZE / 2, i);
-			assertEquals(i, list.get(TO_ADD_SIZE / 2));
-		}
-	}
+    @Test
+    public void testAddToPosition()
+    {
+        fillList();
+        for (int i = 0; i < TO_ADD_SIZE; i++)
+        {
+            list.add(TO_ADD_SIZE / 2, i);
+            assertEquals(i, list.get(TO_ADD_SIZE / 2));
+        }
+    }
 
-	@Test
-	public void testAddStart() {
+    @Test
+    public void testAddStart()
+    {
 
-		for (int i = 0; i < TO_ADD_SIZE; i++) {
-			list.addFirst(i);
-		}
-		for (int i = 0; i < TO_ADD_SIZE; i++) {
-			assertEquals(TO_ADD_SIZE - i - 1, list.get(i));
-		}
-	}
+        for (int i = 0; i < TO_ADD_SIZE; i++)
+        {
+            list.addFirst(i);
+        }
+        for (int i = 0; i < TO_ADD_SIZE; i++)
+        {
+            assertEquals(TO_ADD_SIZE - i - 1, list.get(i));
+        }
+    }
 
-	@Test
-	public void testSize() {
-		assertEquals(list.size(), 0);
-		fillList();
-		assertEquals(list.size(), TO_ADD_SIZE);
-		for (int i = 0; i < TO_ADD_SIZE / 2; i++) {
-			list.del(i);
-		}
-		assertEquals(list.size(), TO_ADD_SIZE / 2);
+    @Test
+    public void testSize()
+    {
+        assertEquals(list.size(), 0);
+        fillList();
+        assertEquals(list.size(), TO_ADD_SIZE);
+        for (int i = 0; i < TO_ADD_SIZE / 2; i++)
+        {
+            list.del(i);
+        }
+        assertEquals(list.size(), TO_ADD_SIZE / 2);
 
-		for (int i = 0; i < TO_ADD_SIZE; i++) {
-			list.addLast(i);
-		}
-		assertEquals(list.size(), TO_ADD_SIZE + TO_ADD_SIZE / 2);
-	}
+        for (int i = 0; i < TO_ADD_SIZE; i++)
+        {
+            list.addLast(i);
+        }
+        assertEquals(list.size(), TO_ADD_SIZE + TO_ADD_SIZE / 2);
+    }
 
-	@Test
-	public void testSort() {
+    @Test
+    public void testSort()
+    {
 
-		Random r = new Random();
-		fillList();
-		list.sort();
-		for (int i = 0; i < TO_ADD_SIZE; i++) {
-			assertEquals(i, list.get(i));
-		}
+        Random r = new Random();
+        fillList();
+        list.sort();
+        for (int i = 0; i < TO_ADD_SIZE; i++)
+        {
+            assertEquals(i, list.get(i));
+        }
 
-		list.clear();
+        list.clear();
 
-		for (int i = TO_ADD_SIZE; i >= 0; i--) {
-			list.addLast(r.nextInt());
-		}
-		list.sort();
-		for (int i = 0; i < TO_ADD_SIZE - 1; i++) {
-			assertTrue(list.get(i) <= list.get(i + 1));
-		}
-	}
+        for (int i = TO_ADD_SIZE; i >= 0; i--)
+        {
+            list.addLast(r.nextInt());
+        }
+        list.sort();
+        for (int i = 0; i < TO_ADD_SIZE - 1; i++)
+        {
+            assertTrue(list.get(i) <= list.get(i + 1));
+        }
+    }
 
-	@Test
-	public void testSet() {
+    @Test
+    public void testSet()
+    {
 
-		fillList();
-		for (int i = 0; i < TO_ADD_SIZE; i++) {
-			list.set(i, i * 2);
-		}
-		for (int i = 0; i < TO_ADD_SIZE; i++) {
-			assertEquals(i * 2, list.get(i));
-		}
-	}
+        fillList();
+        for (int i = 0; i < TO_ADD_SIZE; i++)
+        {
+            list.set(i, i * 2);
+        }
+        for (int i = 0; i < TO_ADD_SIZE; i++)
+        {
+            assertEquals(i * 2, list.get(i));
+        }
+    }
 
-	@Test
-	public void testRemove() {
-		fillList();
-		for (int i = 0; i < TO_ADD_SIZE / 2; i++) {
-			list.del(0);
-		}
-		assertEquals(TO_ADD_SIZE / 2, list.size());
+    @Test
+    public void testRemove()
+    {
+        fillList();
+        for (int i = 0; i < TO_ADD_SIZE / 2; i++)
+        {
+            list.del(0);
+        }
+        assertEquals(TO_ADD_SIZE / 2, list.size());
 
-		for (int i = 0; i < TO_ADD_SIZE / 2; i++) {
-			list.del(0);
-		}
-		assertEquals(0, list.size());
-	}
+        for (int i = 0; i < TO_ADD_SIZE / 2; i++)
+        {
+            list.del(0);
+        }
+        assertEquals(0, list.size());
+    }
 
-	@Test
-	public void testClear() {
-		fillList();
-		list.clear();
-		assertEquals(0, list.size());
-	}
+    @Test
+    public void testClear()
+    {
+        fillList();
+        list.clear();
+        assertEquals(0, list.size());
+    }
 
-	@Test
-	public void testIterator() {
+    @Test
+    public void testIterator()
+    {
 
-		fillList();
-		int i = 0;
-		for (Integer value : list) {
-			assertEquals(i, value.intValue());
-			i++;
-		}
-	}
+        fillList();
+        int i = 0;
+        for (Integer value : list)
+        {
+            assertEquals(i, value.intValue());
+            i++;
+        }
+    }
 
-	@Test
-	public void testInnerIterator() {
-		fillList();
-		Iterator iterator = list.getInnerIterator();
+    @Test
+    public void testInnerIterator()
+    {
+        fillList();
+        Iterator iterator = list.getInnerIterator();
 
-		for (int i = 0; iterator.hasNext(); i++) {
-			assertEquals(i, iterator.next());
-		}
+        for (int i = 0; iterator.hasNext(); i++)
+        {
+            assertEquals(i, iterator.next());
+        }
 
-	}
+    }
 
-	@Test
-	public void testIndexOf() {
-		fillList();
-		for (int i = 0; i < TO_ADD_SIZE; i++) {
-			assertEquals(i, list.indexOf(i));
-		}
-	}
+    @Test
+    public void testIndexOf()
+    {
+        fillList();
+        for (int i = 0; i < TO_ADD_SIZE; i++)
+        {
+            assertEquals(i, list.indexOf(i));
+        }
+    }
 
-	@Parameters
-	public static Collection parTestValues() {
-		return Arrays.asList(new Object[][] { { ArrayListInt.class, "" },
-				{ ArrayListInt2.class, "" }, { LinkedListInt.class, "" } });
-	}
+    @Parameters
+    public static Collection parTestValues()
+    {
+        return Arrays.asList(new Object[][]{{ArrayListInt.class, ""},
+                {ArrayListInt2.class, ""}, {LinkedListInt.class, ""}, {DoubleLinkedListInt.class, ""}});
+    }
 
-	// fucking test repository
+    // fucking test repository
 }
