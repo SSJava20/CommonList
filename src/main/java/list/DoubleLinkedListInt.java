@@ -26,6 +26,28 @@ public class DoubleLinkedListInt extends ListInt
         }
     }
 
+    class InnerIterator implements java.util.Iterator<Integer>
+    {
+        DoubleListNode curNode = begin;
+
+        public boolean hasNext()
+        {
+            return (curNode.next != null);  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        public Integer next()
+        {
+            Integer toret = curNode.data;
+            curNode = curNode.next;
+            return toret;  //To change body of implemented methods use File | Settings | File Templates.
+        }
+
+        public void remove()
+        {
+            //To change body of implemented methods use File | Settings | File Templates.
+        }
+    }
+
     protected DoubleListNode begin;
     protected DoubleListNode end;
 
@@ -51,7 +73,7 @@ public class DoubleLinkedListInt extends ListInt
             addFirst(item);
         else
         {
-            DoubleListNode addAfter = getNode(index);
+            DoubleListNode addAfter = getNode(index-1);
             DoubleListNode added = new DoubleListNode(addAfter, addAfter.next, item);
             addAfter.next = added;
             size++;
@@ -77,6 +99,7 @@ public class DoubleLinkedListInt extends ListInt
         else
         {
             DoubleListNode added = new DoubleListNode(end, null, item);
+            end.next = added;
             end = added;
             size++;
         }
@@ -93,7 +116,15 @@ public class DoubleLinkedListInt extends ListInt
     @Override
     public void del(int index)
     {
-        //To change body of implemented methods use File | Settings | File Templates.
+        DoubleListNode sn = getNode(index);
+        if(sn != null)
+        {
+            if(sn.previous != null)
+                sn.previous.next = sn.next;
+            if(sn.next != null)
+                sn.next.previous = sn.previous;
+            size--;
+        }
     }
 
     @Override
@@ -113,7 +144,7 @@ public class DoubleLinkedListInt extends ListInt
     {
         int cnt = 0;
         DoubleListNode tmp = begin;
-        while (begin.data != item && tmp != null)
+        while (tmp.data != item && tmp != null)
         {
             tmp = tmp.next;
             cnt++;
@@ -124,6 +155,6 @@ public class DoubleLinkedListInt extends ListInt
     @Override
     public Iterator<Integer> getInnerIterator()
     {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return new InnerIterator();  //To change body of implemented methods use File | Settings | File Templates.
     }
 }
