@@ -1,5 +1,7 @@
 package list;
 
+import Sorts.Sort;
+
 /**
  * Created by IntelliJ IDEA. User: stvad Date: 19.03.12 Time: 21:00 To change
  * this template use File | Settings | File Templates.
@@ -148,5 +150,11 @@ public class LinkedListInt extends ListInt
     public java.util.Iterator<Integer> getInnerIterator()
     {
         return new InnerIterator();
+    }
+
+    @Override
+    public void SortMe(Sort type)
+    {
+        //To change body of implemented methods use File | Settings | File Templates.
     }
 }

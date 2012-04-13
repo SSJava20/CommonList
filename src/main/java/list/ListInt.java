@@ -1,5 +1,7 @@
 package list;
 
+import Sorts.Sort;
+
 public abstract class ListInt implements Iterable<Integer>
 {
 
@@ -26,6 +28,8 @@ public abstract class ListInt implements Iterable<Integer>
     public abstract int indexOf(int item);
 
     public abstract java.util.Iterator<Integer> getInnerIterator();
+
+    public abstract void SortMe(Sort type);
 
     public java.util.Iterator<Integer> iterator()
     {

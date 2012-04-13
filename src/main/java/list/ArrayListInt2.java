@@ -1,5 +1,7 @@
 package list;
 
+import Sorts.Sort;
+
 public class ArrayListInt2 extends ListInt {
 	public static final int START_SIZE = 20;
 	private int[] array = new int[START_SIZE];
@@ -131,7 +133,13 @@ public class ArrayListInt2 extends ListInt {
 		return new InnerIterator();
 	}
 
-	class InnerIterator implements java.util.Iterator<Integer> {
+    @Override
+    public void SortMe(Sort type)
+    {
+        //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    class InnerIterator implements java.util.Iterator<Integer> {
 		int curIndex = start;
 
 		public boolean hasNext() {

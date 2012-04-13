@@ -1,5 +1,7 @@
 package list;
 
+import Sorts.Sort;
+
 import java.util.Iterator;
 
 /**
@@ -156,5 +158,11 @@ public class DoubleLinkedListInt extends ListInt
     public Iterator<Integer> getInnerIterator()
     {
         return new InnerIterator();  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public void SortMe(Sort type)
+    {
+        //To change body of implemented methods use File | Settings | File Templates.
     }
 }
