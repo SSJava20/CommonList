@@ -20,8 +20,8 @@ public class LinkedListInt extends ListInt
 
     class InnerIterator implements java.util.Iterator<Integer>
     {
-        listNode curNode = begin; 
-        
+        listNode curNode = begin;
+
         public boolean hasNext()
         {
             return (curNode.next != null);  //To change body of implemented methods use File | Settings | File Templates.
@@ -33,7 +33,7 @@ public class LinkedListInt extends ListInt
             curNode = curNode.next;
             return toret;  //To change body of implemented methods use File | Settings | File Templates.
         }
-        
+
         public void remove()
         {
             //To change body of implemented methods use File | Settings | File Templates.
@@ -133,7 +133,7 @@ public class LinkedListInt extends ListInt
     {
         int cnt = 0;
         listNode tmp = begin;
-        while(begin.data != item && tmp != null)
+        while (begin.data != item && tmp != null)
         {
             tmp = tmp.next;
             cnt++;
@@ -141,11 +141,12 @@ public class LinkedListInt extends ListInt
         return cnt;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
-	/* (non-Javadoc)
-	 * @see list.ListInt#getInnerIterator()
-	 */
-	@Override
-	public java.util.Iterator<Integer> getInnerIterator() {
-		return new InnerIterator();
-	}
+    /* (non-Javadoc)
+      * @see list.ListInt#getInnerIterator()
+      */
+    @Override
+    public java.util.Iterator<Integer> getInnerIterator()
+    {
+        return new InnerIterator();
+    }
 }
