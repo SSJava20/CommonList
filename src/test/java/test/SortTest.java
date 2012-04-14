@@ -1,3 +1,5 @@
+package test;
+
 
 
 /*
@@ -5,7 +7,6 @@
  * the editor.
  */
 import Sorts.*;
-import tests.*;
 import java.util.Random;
 import org.junit.*;
 import static org.junit.Assert.*;
