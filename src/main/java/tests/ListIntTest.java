@@ -11,9 +11,7 @@ import java.util.Random;
 import java.util.Vector;
 
 import list.*;
-
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
