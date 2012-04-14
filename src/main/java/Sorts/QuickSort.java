@@ -15,7 +15,7 @@ public class QuickSort<ToCompare extends Comparable<ToCompare>> extends Sort<ToC
         qSort(data, 0, data.length - 1);
     }
 
-    public void qSort(ToCompare[] A, int low, int high) {
+    private void qSort(ToCompare[] A, int low, int high) {
         int i = low;
         int j = high;
         ToCompare x = A[(low + high) / 2];
