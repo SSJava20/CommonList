@@ -108,4 +108,15 @@ public class SortTest {
         }
         assertTrue(b);
     }
+    
+    @Test
+    public void selectionSortTest() {
+        SelectionSort a = new SelectionSort();
+        a.sort(mas);
+        boolean b = true;
+        for (int i = 0; i < COUNT-1; i++) {
+            b = (b) && ((mas[i].compareTo(mas[i + 1]) == -1) || (mas[i].compareTo(mas[i + 1]) == 0));
+        }
+        assertTrue(b);
+    }
 }
