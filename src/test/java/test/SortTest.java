@@ -79,7 +79,7 @@ public class SortTest {
     
     @Test
     public void bubleSortTest() {
-        BubleSort a = new BubleSort();
+        BubbleSort a = new BubbleSort();
         a.sort(mas);
         boolean b = true;
         for (int i = 0; i < COUNT-1; i++) {
