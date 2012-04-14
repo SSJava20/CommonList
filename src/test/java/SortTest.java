@@ -4,8 +4,10 @@
  * To change this template, choose Tools | Templates and open the template in
  * the editor.
  */
+import Sorts.MergeSort;
 import tests.*;
 import Sorts.QuickSort;
+import Sorts.ShellSort;
 import java.util.Random;
 import org.junit.*;
 import static org.junit.Assert.*;
@@ -14,13 +16,12 @@ import static org.junit.Assert.*;
  *
  * @author Jeka
  */
-public class QuickSortTest {
+public class SortTest {
 
     private Integer[] mas;
-    private QuickSort a = new QuickSort();
     private final int COUNT=100;
 
-    public QuickSortTest() {
+    public SortTest() {
     }
 
     @BeforeClass
@@ -45,7 +46,30 @@ public class QuickSortTest {
     }
 
     @Test
-    public void testSort() {
+    public void shellSortTest() {
+        ShellSort a=new ShellSort();
+        a.sort(mas);
+        boolean b = true;
+        for (int i = 0; i < COUNT-1; i++) {
+            b = (b) && ((mas[i].compareTo(mas[i + 1]) == -1) || (mas[i].compareTo(mas[i + 1]) == 0));
+        }
+        assertTrue(b);
+    }
+    
+    @Test
+    public void qiuckSortTest() {
+        QuickSort a = new QuickSort();
+        a.sort(mas);
+        boolean b = true;
+        for (int i = 0; i < COUNT-1; i++) {
+            b = (b) && ((mas[i].compareTo(mas[i + 1]) == -1) || (mas[i].compareTo(mas[i + 1]) == 0));
+        }
+        assertTrue(b);
+    }
+    
+    @Test
+    public void mergeSortTest() {
+        MergeSort a = new MergeSort();
         a.sort(mas);
         boolean b = true;
         for (int i = 0; i < COUNT-1; i++) {
