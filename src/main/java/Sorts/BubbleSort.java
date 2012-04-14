@@ -8,7 +8,7 @@ package Sorts;
  *
  * @author Jeka
  */
-public class BubleSort<ToCompare extends Comparable<ToCompare>> extends Sort<ToCompare> {
+public class BubbleSort<ToCompare extends Comparable<ToCompare>> extends Sort<ToCompare> {
 
     @Override
     public void sort(ToCompare[] data) {
