@@ -22,6 +22,7 @@ import javax.swing.JTextField;
  */
 public class View extends JFrame {
 
+    private JTextField field;
     private Model model = new Model();
     private MassPanel[] masPanel;
     private final int DEF_W = 900;
@@ -38,6 +39,9 @@ public class View extends JFrame {
         this.setSize(DEF_W, DEF_H);
         this.setLayout(null);
         Button b = new Button("LET\'S ROCK");
+        field=new JTextField("30");
+        field.setLocation(30, DEF_H/2-100);
+        field.setSize(100, 40);
         b.setLocation(30, DEF_H/2-40);
         b.setSize(100, 40);
         b.setBackground(Color.red);
@@ -48,6 +52,7 @@ public class View extends JFrame {
                 th.start();
             }
         });
+        this.add(field);
         this.add(b);
     }
 
@@ -91,7 +96,7 @@ public class View extends JFrame {
                 sort.setGate(barrier);
                 threads[i]=new Thread(sort);
             }
-            s=new Sleeper(30);
+            s=new Sleeper(Integer.parseInt(field.getText()));
             s.setGate(barrier);
             threads[7]=new Thread(s);
         }
